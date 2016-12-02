@@ -9,6 +9,7 @@ class BattleChannel < ApplicationCable::Channel
   end
 
   def take(data)
+    Territory.create station_code: data['stationCode'], color: data['color']
     ActionCable.server.broadcast 'battle_channel', stationCode: data['stationCode'], color: data['color']
   end
 end
