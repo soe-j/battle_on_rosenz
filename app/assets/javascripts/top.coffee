@@ -23,12 +23,8 @@ $ ->
       e.stopPropagation()
       if e.key == 'Enter'
         if e.target.value == station.yomi
-          rosen.setStationMarker station.code, {
-            type: 'circle',
-            radius: 10,
-            color: $('#user-color')[0].value,
-            opacity: 0.8
-          }
+          App.battle.take station.code, $('#user-color')[0].value
+          rosen.clearStationPopups()
         else
           input.css('border-color': 'red')
 
