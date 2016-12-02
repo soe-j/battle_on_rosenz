@@ -19,7 +19,8 @@ $ ->
     }).html(station.name)
     input = $('<input>', {
       class: 'writing-station-yomi',
-      'data-correct': station.yomi
+      'data-correct': station.yomi,
+      'data-stationcode': station.code
     })
     content = $('<div>', {
       class: 'station-popup-content'
@@ -31,4 +32,4 @@ $ ->
   $('#map').on 'keypress', '.writing-station-yomi', (e) ->
     if e.key == 'Enter'
       if e.target.value == e.target.dataset.correct
-        alert '正解'
+        alert e.target.dataset.stationcode
