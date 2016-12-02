@@ -22,7 +22,12 @@ $ ->
     }).keypress (e) ->
       if e.key == 'Enter'
         if e.target.value == station.yomi
-          alert station.code
+          rosen.setStationMarker station.code, {
+            type: 'circle',
+            radius: 10,
+            color: $('#user-color')[0].value,
+            opacity: 0.8
+          }
         else
           input.css('border-color': 'red')
 
