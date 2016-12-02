@@ -1,4 +1,4 @@
 <%= content_tag :div, nil, {id: 'map'} %>
 <%= content_tag :div, {id: 'color-board'} do %>
-  <%= tag :input, {id: 'user-color'}  %>
+  <%= tag :input, {id: 'user-color', value: @default_color}  %>
 <% end %>
