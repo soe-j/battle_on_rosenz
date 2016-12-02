@@ -8,5 +8,12 @@ App.battle = App.cable.subscriptions.create "BattleChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
 
+    rosen.setStationMarker data.stationCode, {
+      type: 'circle',
+      radius: 10,
+      color: data.color,
+      opacity: 0.8
+    }
+
   take: (stationCode, color)->
     @perform 'take', stationCode: stationCode, color: color
