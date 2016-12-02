@@ -8,3 +8,6 @@ $ ->
     zoomControl: false,
     urlHash: true
   }
+
+  rosen.on 'selectStation', (data) ->
+    console.log data
