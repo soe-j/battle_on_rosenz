@@ -18,18 +18,15 @@ $ ->
       class: 'popup-station-name'
     }).html(station.name)
     input = $('<input>', {
-      class: 'writing-station-yomi',
-      'data-correct': station.yomi,
-      'data-stationcode': station.code
-    })
+      class: 'writing-station-yomi'
+    }).keypress (e) ->
+      if e.key == 'Enter'
+        if e.target.value == station.yomi
+          alert station.code
+
     content = $('<div>', {
       class: 'station-popup-content'
     }).append(name).append(input)
 
     popup = Rosen.htmlPopup().setHTML(content[0])
     rosen.setStationPopup(station.code, popup)
-
-  $('#map').on 'keypress', '.writing-station-yomi', (e) ->
-    if e.key == 'Enter'
-      if e.target.value == e.target.dataset.correct
-        alert e.target.dataset.stationcode
