@@ -8,5 +8,5 @@ App.battle = App.cable.subscriptions.create "BattleChannel",
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
 
-  take: ->
-    @perform 'take'
+  take: (stationCode, color)->
+    @perform 'take', stationCode: stationCode, color: color
