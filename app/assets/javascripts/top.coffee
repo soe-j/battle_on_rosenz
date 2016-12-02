@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  rosen = new Rosen('map', {
+  rosen = new Rosen 'map', {
     apiKey: gon.rosenz_key,
     zoomControl: false,
     urlHash: true
-  })
+  }
