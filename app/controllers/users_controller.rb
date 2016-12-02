@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  protect_from_forgery except: [:create]
 
   def create
     @user = User.create(user_params)
