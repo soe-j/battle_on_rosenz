@@ -23,6 +23,8 @@ $ ->
       if e.key == 'Enter'
         if e.target.value == station.yomi
           alert station.code
+        else
+          input.css('border-color': 'red')
 
     content = $('<div>', {
       class: 'station-popup-content'
