@@ -20,6 +20,7 @@ $ ->
     input = $('<input>', {
       class: 'writing-station-yomi'
     }).keypress (e) ->
+      e.stopPropagation()
       if e.key == 'Enter'
         if e.target.value == station.yomi
           rosen.setStationMarker station.code, {
