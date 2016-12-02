@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## ゲーム内容検討中
++ 駅をタップして読みを入力すると、その駅を取れる
++ 取られてる駅の両隣を取ると、挟まれた駅はクリアされる(誰の駅でもなくなる)
++ 対戦範囲限定(地域、路線、ある条件を満たす駅...)
