@@ -4,5 +4,7 @@
 
 $ ->
   rosen = new Rosen('map', {
-    apiKey: gon.rosenz_key
+    apiKey: gon.rosenz_key,
+    zoomControl: false,
+    urlHash: true
   })
