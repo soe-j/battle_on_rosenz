@@ -29,4 +29,5 @@ $ ->
     }).append(name).append(input)
 
     popup = Rosen.htmlPopup().setHTML(content[0])
-    rosen.setStationPopup(station.code, popup)
+    rosen.setStationPopup(station.code, popup).then (e) ->
+      input.focus()
