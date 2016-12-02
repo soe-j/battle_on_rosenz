@@ -10,4 +10,19 @@ $ ->
   }
 
   rosen.on 'selectStation', (data) ->
-    console.log data
+    rosen.clearStationPopups()
+
+    station = data.stations[0]
+
+    name = $('<p>', {
+      class: 'popup-station-name'
+    }).html(station.name)
+    input = $('<input>', {
+      class: 'writing-station-yomi'
+    })
+    content = $('<div>', {
+      class: 'station-popup-content'
+    }).append(name).append(input)
+
+    popup = Rosen.htmlPopup().setHTML(content[0])
+    rosen.setStationPopup(station.code, popup)
