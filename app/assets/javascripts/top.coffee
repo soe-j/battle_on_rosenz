@@ -26,6 +26,11 @@ $ ->
 
     station = data.stations[0]
 
+    # Territoryになってる駅は反応しない
+    territory_stations = gon.territories.map (trtr) ->
+      trtr.stationCode
+    return if station.code in territory_stations
+
     name = $('<p>', {
       class: 'popup-station-name'
     }).html(station.name)
