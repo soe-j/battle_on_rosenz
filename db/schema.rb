@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202210425) do
+ActiveRecord::Schema.define(version: 20161203085020) do
+
+  create_table "takeable_stations", force: :cascade do |t|
+    t.integer  "code"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "territories", force: :cascade do |t|
     t.integer  "station_code"
