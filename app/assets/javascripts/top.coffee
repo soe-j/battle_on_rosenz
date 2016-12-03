@@ -3,6 +3,16 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  # player設定フォーム
+  $('#user-join-button').click (e) ->
+    userNameElem = $('#user-name')
+    userColorElem = $('#user-color')
+    App.battle.join userNameElem[0].value, userColorElem[0].value
+
+    $(e.target).hide()
+    userNameElem.hide()
+    userColorElem.hide()
+
   # 路線図生成
   window.rosen = new Rosen 'map', {
     apiKey: gon.rosenz_key,
