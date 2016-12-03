@@ -3,12 +3,14 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  # 路線図生成
   window.rosen = new Rosen 'map', {
     apiKey: gon.rosenz_key,
     zoomControl: false,
     urlHash: true
   }
 
+  # Territory情報配置
   rosen.setZoom 17
   gon.territories.forEach (trtr) ->
     rosen.setStationMarker trtr.stationCode, {
@@ -18,6 +20,7 @@ $ ->
       opacity: 0.8
     }
 
+  # 駅選択時
   rosen.on 'selectStation', (data) ->
     rosen.clearStationPopups()
 
