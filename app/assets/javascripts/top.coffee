@@ -31,6 +31,12 @@ $ ->
       trtr.stationCode
     return if station.code in territory_stations
 
+    # 取得可能な駅でなかったら反応しない
+    my_takebles = gon.takeables.filter (tkbl) ->
+      tkbl.color == $('#user-color')[0].value
+
+    return unless my_takebles.length == 0 || station.code in (tkbl.code for tkbl in my_takebles)
+
     name = $('<p>', {
       class: 'popup-station-name'
     }).html(station.name)
