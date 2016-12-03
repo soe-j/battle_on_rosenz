@@ -3,10 +3,20 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  # player設定フォーム
+  # player一覧
+  gon.users.forEach (user) ->
+    $('#color-board').append($('<div>', {
+      class: 'user-label'
+    }).html("#{user.name}: #{user.color}"))
+
+  # player登録
   $('#user-join-button').click (e) ->
     userNameElem = $('#user-name')
     userColorElem = $('#user-color')
+
+    return if userNameElem[0].value in (user.name for user in gon.users)
+    return if userColorElem[0].value in (user.color for user in gon.users)
+
     App.battle.join userNameElem[0].value, userColorElem[0].value
 
     $(e.target).hide()

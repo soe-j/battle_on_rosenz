@@ -26,5 +26,17 @@ App.battle = App.cable.subscriptions.create "BattleChannel",
         color: data.color
       }
 
+    if data.userName && data.userColor
+      gon.users.push {
+        name: data.userName,
+        color: data.userColor
+      }
+      $('#color-board').append($('<div>', {
+        class: 'user-label'
+      }).html("#{data.userName}: #{data.userColor}"))
+
   take: (stationCode, color)->
     @perform 'take', stationCode: stationCode, color: color
+
+  join: (userName, userColor)->
+    @perform 'join', userName: userName, userColor: userColor

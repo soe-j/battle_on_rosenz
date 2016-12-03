@@ -23,4 +23,8 @@ class BattleChannel < ApplicationCable::Channel
       TakeableStation.create! code: point['Station']['code'], color: data['color']
     end
   end
+
+  def join(data)
+    Player.create! name: data['userName'], color: data['userColor']
+  end
 end

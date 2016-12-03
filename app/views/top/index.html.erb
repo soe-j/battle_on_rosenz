@@ -1,6 +1,6 @@
 <%= content_tag :div, nil, {id: 'map'} %>
 <%= content_tag :div, {id: 'color-board'} do %>
   <%= tag :input, {id: 'user-name', placeholder: 'Name'} %>
-  <%= tag :input, {id: 'user-color', value: @default_color}  %>
+  <%= tag :input, {id: 'user-color', placeholder: 'Color'}  %>
   <%= tag :input, {id: 'user-join-button', type: 'button', value: 'join'} %>
 <% end %>
