@@ -9,6 +9,15 @@ $ ->
     urlHash: true
   }
 
+  rosen.setZoom 17
+  gon.territories.forEach (trtr) ->
+    rosen.setStationMarker trtr.stationCode, {
+      type: 'circle',
+      radius: 10,
+      color: trtr.color,
+      opacity: 0.8
+    }
+
   rosen.on 'selectStation', (data) ->
     rosen.clearStationPopups()
 
