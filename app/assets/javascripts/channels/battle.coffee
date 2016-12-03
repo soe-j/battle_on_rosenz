@@ -15,5 +15,10 @@ App.battle = App.cable.subscriptions.create "BattleChannel",
       opacity: 0.8
     }
 
+    gon.territories.push {
+      stationCode: data.stationCode,
+      color: data.color
+    }
+
   take: (stationCode, color)->
     @perform 'take', stationCode: stationCode, color: color
