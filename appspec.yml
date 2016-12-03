@@ -1,0 +1,22 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /service/battle_on_rosenz
+permissions:
+  - object: /
+    owner: rosenz
+    group: rosenz
+hooks:
+  ApplicationStop:
+    - location: /deploy/stop_nginx.sh
+  BeforeInstall:
+    - location: /deploy/remove_app.sh
+      timeout: 180
+      runas: root
+  AfterInstall:
+    - location: /deploy/start_app.sh
+      timeout: 180
+      runas: rosenz
+  ApplicationStart:
+    - location: /deploy/start_nginx.sh
