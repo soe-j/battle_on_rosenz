@@ -27,4 +27,8 @@ class BattleChannel < ApplicationCable::Channel
   def join(data)
     Player.create! name: data['userName'], color: data['userColor']
   end
+
+  def start
+    ActionCable.server.broadcast 'battle_channel', start: true
+  end
 end

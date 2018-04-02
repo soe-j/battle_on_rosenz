@@ -35,8 +35,14 @@ App.battle = App.cable.subscriptions.create "BattleChannel",
         class: 'user-label'
       }).html("#{data.userName}: #{data.userColor}"))
 
+    if data.start
+      $('#start-button').hide()
+
   take: (stationCode, color)->
     @perform 'take', stationCode: stationCode, color: color
 
   join: (userName, userColor)->
     @perform 'join', userName: userName, userColor: userColor
+
+  start: () ->
+    @perform 'start'

@@ -3,6 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  # start
+  $('#start-button').click (e) ->
+    App.battle.start()
+
   # player一覧
   gon.users.forEach (user) ->
     $('#color-board').append($('<div>', {
